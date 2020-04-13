@@ -5,18 +5,19 @@ import os
 
 
 def do_pack():
+    """do pack"""
     time = datetime.datetime.now()
     date = (str(time.year) + str(time.month) + str(time.day) + str(time.hour) +
             str(time.minute) + str(time.second))
     try:
         local("mkdir -p versions")
         local("tar -cvzf versions/web_static_{}.tgz ./web_static".format(date))
-        return "/versions/web_static_{}".format(date)
+        return "./versions/web_static_{}.tgz".format(date)
     except:
         return None
 
 
-env.hosts = ['35.190.188.208', '35.227.47.184']
+env.hosts = ['35.229.42.147', '54.90.157.131']
 
 
 def do_deploy(archive_path):
